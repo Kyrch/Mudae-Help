@@ -6,9 +6,9 @@ module.exports = (Discord, client) => {
     client.user.setStatus('online');
     client.user.setPresence({
         activity: {
-            name: 'k.help',
+            name: 'INCESTO',
             type: "PLAYING",
-            url: "https://twitter.com/Kyrchzera"
+            url: "INCESTO"
         },
     });
 }
