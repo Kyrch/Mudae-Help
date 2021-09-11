@@ -14,16 +14,6 @@ const {
 } = require('./config.json')
 
 client.on("message", (message) => {
-    // const args = message.content.split(' ');
-    // if (message.channel.type == "dm") {
-    //     if (!message.content.startsWith(config.prefix)) {
-    //         if (args.length == 1) {
-    //             const channelNick = client.channels.cache.find(channel => channel.id === "852847894930259988");
-    //             const autor = `<@!${message.author.id}>`
-    //             channelNick.send(`${autor} // ${message.author.id} // ${message}`)
-    //         }
-    //     }
-    // }
 })
 
 client.login(token)
