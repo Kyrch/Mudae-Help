@@ -1,7 +1,7 @@
 module.exports = {
-    name: 'separate',
-    description: 'Separar Anti Disable List do Mudae',
-    aliases: ['sep'],
+    name: 'wlseparate',
+    description: 'Pega a lista de $wl e separa em "$"',
+    aliases: ['wlsep'],
     execute(client, message, args) {
 
         const {

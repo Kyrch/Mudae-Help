@@ -31,7 +31,7 @@ module.exports = {
                     value: `${prefix}help <comando>`
                 }, {
                     name: 'Comandos',
-                    value: 'mmseparate' + '\n' + 'separate' + '\n' + 'topseparate'
+                    value: 'dlseparate' + '\n' + 'mmseparate' + '\n' + 'topseparate' + '\n' + 'wlseparate'
                 })
                 .setTimestamp()
                 .setFooter(footer, avatarBot)
@@ -41,6 +41,31 @@ module.exports = {
         }
 
         const cmd = args[0].toLowerCase()
+
+        if (cmd == 'dlseparate') {
+            const embed = new Discord.MessageEmbed()
+                .setColor('#d3e6e6')
+                .setTitle('COMANDO DLSEPARATE')
+                .setAuthor(`${user.username}#${user.discriminator}`, avatar)
+                .setThumbnail(avatarBot)
+                .addFields({
+                    name: 'Sintaxe',
+                    value: `${prefix}dlseparate <texto de $dl>`
+                }, {
+                    name: 'Aliases',
+                    value: `${prefix}dlsep`
+                }, {
+                    name: 'Função',
+                    value: 'Separa a lista de $dl em "$"'
+                }, {
+                    name: 'Permissões Necessárias',
+                    value: 'Nenhuma'
+                })
+                .setTimestamp()
+                .setFooter(footer, avatarBot)
+
+            message.channel.send(embed)
+        }
 
         if (cmd == 'mmseparate') {
             const embed = new Discord.MessageEmbed()
@@ -67,31 +92,6 @@ module.exports = {
             message.channel.send(embed)
         }
 
-        if (cmd == 'separate') {
-            const embed = new Discord.MessageEmbed()
-                .setColor('#d3e6e6')
-                .setTitle('COMANDO SEPARATE')
-                .setAuthor(`${user.username}#${user.discriminator}`, avatar)
-                .setThumbnail(avatarBot)
-                .addFields({
-                    name: 'Sintaxe',
-                    value: `${prefix}separate <texto de várias linhas>`
-                }, {
-                    name: 'Aliases',
-                    value: `${prefix}sep`
-                }, {
-                    name: 'Função',
-                    value: 'Troca os espaços de linha por "$"'
-                }, {
-                    name: 'Permissões Necessárias',
-                    value: 'Nenhuma'
-                })
-                .setTimestamp()
-                .setFooter(footer, avatarBot)
-
-            message.channel.send(embed)
-        }
-
         if (cmd == 'topseparate') {
             const embed = new Discord.MessageEmbed()
                 .setColor('#d3e6e6')
@@ -107,6 +107,31 @@ module.exports = {
                 }, {
                     name: 'Função',
                     value: 'Pega a lista apenas os personagens de $top e os separa por "$"'
+                }, {
+                    name: 'Permissões Necessárias',
+                    value: 'Nenhuma'
+                })
+                .setTimestamp()
+                .setFooter(footer, avatarBot)
+
+            message.channel.send(embed)
+        }
+
+        if (cmd == 'wlseparate') {
+            const embed = new Discord.MessageEmbed()
+                .setColor('#d3e6e6')
+                .setTitle('COMANDO WLSEPARATE')
+                .setAuthor(`${user.username}#${user.discriminator}`, avatar)
+                .setThumbnail(avatarBot)
+                .addFields({
+                    name: 'Sintaxe',
+                    value: `${prefix}wlseparate <texto de $wl>`
+                }, {
+                    name: 'Aliases',
+                    value: `${prefix}wlsep`
+                }, {
+                    name: 'Função',
+                    value: 'Troca os espaços de linha por "$"'
                 }, {
                     name: 'Permissões Necessárias',
                     value: 'Nenhuma'
