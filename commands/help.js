@@ -9,8 +9,6 @@ module.exports = {
             member
         } = message
 
-        const cmd = args[0].toLowerCase()
-
         const prefix = config.prefix;
         const user = message.author;
         const avatar = user.avatarURL({
@@ -33,13 +31,16 @@ module.exports = {
                     value: `${prefix}help <comando>`
                 }, {
                     name: 'Comandos',
-                    value: 'separate'
+                    value: 'mmseparate' + '\n' + 'separate' + '\n' + 'topseparate'
                 })
                 .setTimestamp()
                 .setFooter(footer, avatarBot)
 
             message.channel.send(embed)
+            return
         }
+
+        const cmd = args[0].toLowerCase()
 
         if (cmd == 'mmseparate') {
             const embed = new Discord.MessageEmbed()
@@ -76,7 +77,7 @@ module.exports = {
                     name: 'Sintaxe',
                     value: `${prefix}separate <texto de várias linhas>`
                 }, {
-                    name: 'Aliase',
+                    name: 'Aliases',
                     value: `${prefix}sep`
                 }, {
                     name: 'Função',
