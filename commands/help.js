@@ -9,6 +9,8 @@ module.exports = {
             member
         } = message
 
+        const cmd = args[0].toLowerCase()
+
         const prefix = config.prefix;
         const user = message.author;
         const avatar = user.avatarURL({
@@ -39,7 +41,32 @@ module.exports = {
             message.channel.send(embed)
         }
 
-        if (args[0] == 'separate') {
+        if (cmd == 'mmseparate') {
+            const embed = new Discord.MessageEmbed()
+                .setColor('#d3e6e6')
+                .setTitle('COMANDO MMSEPARATE')
+                .setAuthor(`${user.username}#${user.discriminator}`, avatar)
+                .setThumbnail(avatarBot)
+                .addFields({
+                    name: 'Sintaxe',
+                    value: `${prefix}mmseparate <texto de $mm apenas com emoji>`
+                }, {
+                    name: 'Aliases',
+                    value: `${prefix}mmsep`
+                }, {
+                    name: 'Função',
+                    value: 'Separa a lista de $mm em "$" e retira apenas os emojis'
+                }, {
+                    name: 'Permissões Necessárias',
+                    value: 'Nenhuma'
+                })
+                .setTimestamp()
+                .setFooter(footer, avatarBot)
+
+            message.channel.send(embed)
+        }
+
+        if (cmd == 'separate') {
             const embed = new Discord.MessageEmbed()
                 .setColor('#d3e6e6')
                 .setTitle('COMANDO SEPARATE')
@@ -64,7 +91,7 @@ module.exports = {
             message.channel.send(embed)
         }
 
-        if (args[0] == 'topseparate') {
+        if (cmd == 'topseparate') {
             const embed = new Discord.MessageEmbed()
                 .setColor('#d3e6e6')
                 .setTitle('COMANDO TOPSEPARATE')
