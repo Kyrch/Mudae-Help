@@ -13,19 +13,15 @@ const {
     token
 } = require('./config.json')
 
-client.on("message", (message) => {
+client.on("guildCreate", guild => {
+    console.log(`Bot entrou no servidor: ${guild.name} (id: ${guild.id}). Número de Membros: ${guild.memberCount} membros!`);
 
-    if (message.content.includes(`bom dia`)) {
-        message.channel.send(`ohayo onii-chan`)
-    }
+});
 
-    if (message.content.includes(`o que o felp é?`)) {
-        message.channel.send(`o felp é gay, onii-chan`)
-    }
+client.on("guildDelete", guild => {
+    console.log(`O bot foi removido do servidor: ${guild.name} (id: ${guild.id}). Número de Membros: ${guild.memberCount} membros!`);
+});
 
-    // if (message.author.id == '221689867032199168') {
-    //     message.channel.send(`vc me engravidou hikki https://i.imgur.com/624jGro.png`)
-    // }
-})
+client.on("message", (message) => {})
 
 client.login(token)
