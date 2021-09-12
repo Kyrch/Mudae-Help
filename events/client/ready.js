@@ -6,7 +6,7 @@ module.exports = (Discord, client) => {
     client.user.setStatus('online');
     client.user.setPresence({
         activity: {
-            name: 'm!help',
+            name: 'm$help',
             type: "PLAYING",
             url: "https://twitter.com/Kyrchzera"
         },
