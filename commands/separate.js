@@ -1,6 +1,7 @@
 module.exports = {
     name: 'separate',
     description: 'Separar Anti Disable List do Mudae',
+    aliases: ['sep'],
     execute(client, message, args) {
 
         const {
