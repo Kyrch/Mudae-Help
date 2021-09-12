@@ -1,7 +1,7 @@
 module.exports = {
     name: 'topsseparate',
     description: 'Pega a lista apenas os personagens de $top e os separa por "$"',
-    aliases: ['ts'],
+    aliases: ['topsep'],
     execute(client, message, args) {
 
         const {
@@ -21,6 +21,10 @@ module.exports = {
             console.log(`Comando DM: ${messageConsole}`)
         }
 
+        if (args.length == 0) {
+            return
+        }
+
         const animes = args.slice(0).join(' ')
 
         let quantity = []
@@ -29,6 +33,8 @@ module.exports = {
 
         if (animes.split(' - ')[1] !== undefined) {
             quantity += animesSemHeart.split(' - ')[1]
+        } else {
+            return
         }
 
         if (animes.split(' - ')[3] !== undefined) {
@@ -180,6 +186,8 @@ module.exports = {
         }
 
         message.channel.send(quantity)
-        console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+        if (message.channel.type !== "dm") {
+            console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+        }
     }
 }

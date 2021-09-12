@@ -46,14 +46,16 @@ module.exports = {
                     value: `${prefix}help <comando>`
                 }, {
                     name: 'Comandos',
-                    value: 'dlseparate' + '\n' + 'mmseparate' + '\n' + 'topseparate' + '\n' + 'wlseparate'
+                    value: 'dlseparate' + '\n' + 'donate' + '\n' + 'mmseparate' + '\n' + 'topseparate' + '\n' + 'wlseparate'
                 })
                 .setTimestamp()
                 .setFooter(footer, avatarBot)
 
 
             message.channel.send(embed)
-            console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+            if (message.channel.type !== "dm") {
+                console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+            }
             return
         }
 
@@ -82,7 +84,37 @@ module.exports = {
                 .setFooter(footer, avatarBot)
 
             message.channel.send(embed)
-            console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+            if (message.channel.type !== "dm") {
+                console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+            }
+        }
+
+        if (cmd == 'donate') {
+            const embed = new Discord.MessageEmbed()
+                .setColor('#d3e6e6')
+                .setTitle('COMANDO DONATE')
+                .setAuthor(`${user.username}#${user.discriminator}`, avatar)
+                .setThumbnail(avatarBot)
+                .addFields({
+                    name: 'Sintaxe',
+                    value: `${prefix}donate`
+                }, {
+                    name: 'Aliases',
+                    value: `${prefix}donate`
+                }, {
+                    name: 'Função',
+                    value: 'Mostra o link do PicPay do meu criador'
+                }, {
+                    name: 'Permissões Necessárias',
+                    value: 'Nenhuma'
+                })
+                .setTimestamp()
+                .setFooter(footer, avatarBot)
+
+            message.channel.send(embed)
+            if (message.channel.type !== "dm") {
+                console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+            }
         }
 
         if (cmd == 'mmseparate') {
@@ -108,6 +140,9 @@ module.exports = {
                 .setFooter(footer, avatarBot)
 
             message.channel.send(embed)
+            if (message.channel.type !== "dm") {
+                console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+            }
         }
 
         if (cmd == 'topseparate') {
@@ -133,7 +168,9 @@ module.exports = {
                 .setFooter(footer, avatarBot)
 
             message.channel.send(embed)
-            console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+            if (message.channel.type !== "dm") {
+                console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+            }
         }
 
         if (cmd == 'wlseparate') {
@@ -159,7 +196,9 @@ module.exports = {
                 .setFooter(footer, avatarBot)
 
             message.channel.send(embed)
-            console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+            if (message.channel.type !== "dm") {
+                console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+            }
         }
     }
 }

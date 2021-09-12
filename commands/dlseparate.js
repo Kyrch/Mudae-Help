@@ -19,6 +19,10 @@ module.exports = {
             console.log(`Comando DM: ${messageConsole}`)
         }
 
+        if (args.length == 0) {
+            return
+        }
+
         const animes = args.slice(0).join(' ')
 
         let quantity = []
@@ -211,6 +215,8 @@ module.exports = {
         }
 
         message.channel.send(quantity)
-        console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+        if (message.channel.type !== "dm") {
+            console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+        }
     }
 }

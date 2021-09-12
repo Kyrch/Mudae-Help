@@ -21,12 +21,19 @@ module.exports = {
             console.log(`Comando DM: ${messageConsole}`)
         }
 
-        const animes = Array.from(args.slice(0).join(' '))
+        if (args.length == 0) {
+            return
+        }
+
+        const RegExpEmoji = /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g
+        const animes = Array.from(args.slice(0).join(' ').replace(RegExpEmoji, ''))
         let nowAnimesHere = []
         animes.forEach((item, indice, array) => {
             nowAnimesHere += item.replace("\n", "$").replace(/_/gi, " ")
         })
         message.channel.send(nowAnimesHere)
-        console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+        if (message.channel.type !== "dm") {
+            console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
+        }
     }
 }
