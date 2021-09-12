@@ -8,6 +8,17 @@ module.exports = {
             member
         } = message
 
+        const messageConsole = `${message.author.username}#${message.author.discriminator} - ${message}`
+
+        if (message.channel.type !== "dm") {
+            if (!(member.guild.me.hasPermission('ADMINISTRATOR') || member.guild.me.hasPermission('SEND_MESSAGES') || message.guild.me.permissionsIn(message.channel).has('SEND_MESSAGES'))) {
+                console.log(`${messageConsole} // SEND_MESSAGES não está habilitado ao cargo nem ao canal. Sem ADMINISTRATOR`)
+                return
+            }
+        } else {
+            console.log(`Comando DM: ${messageConsole}`)
+        }
+
         const animes = args.slice(0).join(' ')
 
         let quantity = []
@@ -63,7 +74,7 @@ module.exports = {
             quantity += "$" + corte[22]
         }
 
-        if (animes.split('(')[13] !== undefined) { 
+        if (animes.split('(')[13] !== undefined) {
             quantity += "$" + corte[24]
         }
 
@@ -71,7 +82,7 @@ module.exports = {
             quantity += "$" + corte[26]
         }
 
-        if (animes.split('(')[15] !== undefined) { 
+        if (animes.split('(')[15] !== undefined) {
             quantity += "$" + corte[28]
         }
 
@@ -79,7 +90,7 @@ module.exports = {
             quantity += "$" + corte[30]
         }
 
-        if (animes.split('(')[17] !== undefined) { 
+        if (animes.split('(')[17] !== undefined) {
             quantity += "$" + corte[32]
         }
 
@@ -87,7 +98,7 @@ module.exports = {
             quantity += "$" + corte[34]
         }
 
-        if (animes.split('(')[19] !== undefined) { 
+        if (animes.split('(')[19] !== undefined) {
             quantity += "$" + corte[36]
         }
 
@@ -95,7 +106,7 @@ module.exports = {
             quantity += "$" + corte[38]
         }
 
-        if (animes.split('(')[21] !== undefined) { 
+        if (animes.split('(')[21] !== undefined) {
             quantity += "$" + corte[40]
         }
 
@@ -103,7 +114,7 @@ module.exports = {
             quantity += "$" + corte[42]
         }
 
-        if (animes.split('(')[23] !== undefined) { 
+        if (animes.split('(')[23] !== undefined) {
             quantity += "$" + corte[44]
         }
 
@@ -111,7 +122,7 @@ module.exports = {
             quantity += "$" + corte[46]
         }
 
-        if (animes.split('(')[25] !== undefined) { 
+        if (animes.split('(')[25] !== undefined) {
             quantity += "$" + corte[48]
         }
 
@@ -119,7 +130,7 @@ module.exports = {
             quantity += "$" + corte[50]
         }
 
-        if (animes.split('(')[27] !== undefined) { 
+        if (animes.split('(')[27] !== undefined) {
             quantity += "$" + corte[52]
         }
 
@@ -127,7 +138,7 @@ module.exports = {
             quantity += "$" + corte[54]
         }
 
-        if (animes.split('(')[29] !== undefined) { 
+        if (animes.split('(')[29] !== undefined) {
             quantity += "$" + corte[56]
         }
 
@@ -135,7 +146,7 @@ module.exports = {
             quantity += "$" + corte[58]
         }
 
-        if (animes.split('(')[31] !== undefined) { 
+        if (animes.split('(')[31] !== undefined) {
             quantity += "$" + corte[60]
         }
 
@@ -143,7 +154,7 @@ module.exports = {
             quantity += "$" + corte[62]
         }
 
-        if (animes.split('(')[33] !== undefined) { 
+        if (animes.split('(')[33] !== undefined) {
             quantity += "$" + corte[64]
         }
 
@@ -151,7 +162,7 @@ module.exports = {
             quantity += "$" + corte[66]
         }
 
-        if (animes.split('(')[35] !== undefined) { 
+        if (animes.split('(')[35] !== undefined) {
             quantity += "$" + corte[68]
         }
 
@@ -159,7 +170,7 @@ module.exports = {
             quantity += "$" + corte[70]
         }
 
-        if (animes.split('(')[35] !== undefined) { 
+        if (animes.split('(')[35] !== undefined) {
             quantity += "$" + corte[72]
         }
 
@@ -167,7 +178,7 @@ module.exports = {
             quantity += "$" + corte[74]
         }
 
-        if (animes.split('(')[37] !== undefined) { 
+        if (animes.split('(')[37] !== undefined) {
             quantity += "$" + corte[76]
         }
 
@@ -175,7 +186,7 @@ module.exports = {
             quantity += "$" + corte[78]
         }
 
-        if (animes.split('(')[39] !== undefined) { 
+        if (animes.split('(')[39] !== undefined) {
             quantity += "$" + corte[80]
         }
 
@@ -183,7 +194,7 @@ module.exports = {
             quantity += "$" + corte[82]
         }
 
-        if (animes.split('(')[41] !== undefined) { 
+        if (animes.split('(')[41] !== undefined) {
             quantity += "$" + corte[84]
         }
 
@@ -191,7 +202,7 @@ module.exports = {
             quantity += "$" + corte[86]
         }
 
-        if (animes.split('(')[43] !== undefined) { 
+        if (animes.split('(')[43] !== undefined) {
             quantity += "$" + corte[88]
         }
 
@@ -200,5 +211,6 @@ module.exports = {
         }
 
         message.channel.send(quantity)
+        console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
     }
 }

@@ -9,6 +9,21 @@ module.exports = {
             member
         } = message
 
+        const messageConsole = `${message.author.username}#${message.author.discriminator} - ${message}`
+
+        if (message.channel.type !== "dm") {
+            if (!(member.guild.me.hasPermission('ADMINISTRATOR') || member.guild.me.hasPermission('SEND_MESSAGES') || message.guild.me.permissionsIn(message.channel).has('SEND_MESSAGES'))) {
+                console.log(`${messageConsole} // SEND_MESSAGES não está habilitado ao cargo nem ao canal. Sem ADMINISTRATOR`)
+                return
+            }
+            if (!(member.guild.me.hasPermission('ADMINISTRATOR') || member.guild.me.hasPermission('EMBED_LINKS') || message.guild.me.permissionsIn(message.channel).has('EMBED_LINKS'))) {
+                console.log(`${messageConsole} // EMBED_LINKS não está habilitado ao cargo nem ao canal. Sem ADMINISTRATOR`)
+                return
+            }
+        } else {
+            console.log(`Comando DM: ${messageConsole}`)
+        }
+
         const prefix = config.prefix;
         const user = message.author;
         const avatar = user.avatarURL({
@@ -36,7 +51,9 @@ module.exports = {
                 .setTimestamp()
                 .setFooter(footer, avatarBot)
 
+
             message.channel.send(embed)
+            console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
             return
         }
 
@@ -65,6 +82,7 @@ module.exports = {
                 .setFooter(footer, avatarBot)
 
             message.channel.send(embed)
+            console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
         }
 
         if (cmd == 'mmseparate') {
@@ -115,6 +133,7 @@ module.exports = {
                 .setFooter(footer, avatarBot)
 
             message.channel.send(embed)
+            console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
         }
 
         if (cmd == 'wlseparate') {
@@ -140,6 +159,7 @@ module.exports = {
                 .setFooter(footer, avatarBot)
 
             message.channel.send(embed)
+            console.log(`${messageConsole}, Executado em ${message.guild.name}, ID: ${message.guild.id}`)
         }
     }
 }
